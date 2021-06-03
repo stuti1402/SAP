@@ -5,7 +5,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 void main() {
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
@@ -78,14 +77,14 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Stack(
         children: [
           Positioned(
-            top: 0,
+            top: -100,
             right: 0,
             left: 0,
             child: Container(
               height: 300,
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage("assets/icon.jpeg"),
+                  image: AssetImage("assets/icon.png"),
                   fit: BoxFit.fill
                 )
               ),
@@ -128,7 +127,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             'Login',
                             style: TextStyle(
                               color: Colors.black,
-                              fontFamily: "Serifa",
+                              fontFamily: "Serif",
                               fontSize: 25,
                               // fontStyle: ,
 
@@ -202,17 +201,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ),),
 
               SizedBox(height: 15),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: <Widget>[
-                  _loginSocialMediaBtn(
-                      FontAwesomeIcons.google, googleColor),
-                  SizedBox(width: 25),
-                  _loginSocialMediaBtn(
-                      FontAwesomeIcons.facebookF, facebookColor),
-                ],
-              ),
+
 
 
             ],),
@@ -251,31 +240,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
 
 
-  //button to login in using scial media,
-  _loginSocialMediaBtn(IconData icon, Color bgColor) {
-    return SizedBox.fromSize(
-      size: Size(40, 40), //button width and height
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(5),
-        child: Material(
-          elevation: 16,
-          shadowColor: Colors.white,
-          color: bgColor,
-          child: InkWell(
-            splashColor: Colors.white,
-            onTap: () {},
-            child: Center(
-              child: Icon(
-                icon,
-                color: Colors.white,
-                size: 24,
-              ),
-            ),
-          ),
-        ),
-      ),
-    );
-  }
 
   _inputTextField(hintText, bool obscuretext) {
     return Container(
