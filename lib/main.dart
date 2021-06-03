@@ -1,9 +1,19 @@
+import 'dart:ui';
+
 import 'package:android_login_ui/style.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 void main() {
+  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+    systemNavigationBarColor: Colors.amber, // navigation bar color
+    statusBarColor: Colors.white, // status bar color
+    statusBarIconBrightness: Brightness.dark, // status bar icon color
+    systemNavigationBarIconBrightness: Brightness.dark, // color of navigation controls
+  ));
   runApp(MyApp());
 }
 
@@ -15,10 +25,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'TEKSNA',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
+
       home: MyHomePage(),
     );
   }
@@ -95,24 +102,24 @@ class _MyHomePageState extends State<MyHomePage> {
                   color: Colors.white,
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.black.withOpacity(0.3),
+                      color: Colors.black.withOpacity(0.15),
                       blurRadius: 10,
                       spreadRadius: 5,
                     )
                   ]
                   ),
 
-                padding: EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                padding: EdgeInsets.symmetric(horizontal: 15, vertical: 12),
                 child: SingleChildScrollView(
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
 
-                      SizedBox(height: 5),
+                      SizedBox(height: 10),
 
                       Align(
-                        alignment: Alignment.centerLeft,
+                        alignment: Alignment(-0.93,0),
                         child: InkWell(
                           onTap: () {
                             //TODO
@@ -122,6 +129,8 @@ class _MyHomePageState extends State<MyHomePage> {
                             style: TextStyle(
                               color: Colors.black,
                               fontSize: 25,
+                              // fontStyle: ,
+
                             ),
                           ),
                         ),
@@ -132,7 +141,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       _labelText('Email Address / Phone Number '),
                       _inputTextField('example@example.com', false),
                       SizedBox(height: 15),
-                      _labelText('Enter Password:'),
+                      _labelText('Enter Password'),
                       _inputTextField('********', true),
 
                       SizedBox(height: 15),
@@ -140,7 +149,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         alignment: Alignment.center,
                         child: Container(
                           height: 55,
-                          width: 310,
+                          width: 325,
                           child: new RaisedButton(
                             onPressed: () => {
                               //TODO
@@ -151,7 +160,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                 fontSize: 18,
                               ),
                             ),
-                            color: Color(0XFF303f9f),
+                            color: Colors.blueAccent,
                             textColor: Colors.white,
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10.0),
@@ -280,7 +289,7 @@ class _MyHomePageState extends State<MyHomePage> {
               border: InputBorder.none,
               hintText: hintText,
               hintStyle: TextStyle(
-                color: Colors.black38,
+                color: Colors.black87,
               )),
         ),
       ),
@@ -289,7 +298,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   _labelText(title) {
     return Padding(
-      padding: EdgeInsets.only(left: 24),
+      padding: EdgeInsets.only(left: 10),
       child: Text(
         title,
         style: TextStyle(
