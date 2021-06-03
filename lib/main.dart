@@ -8,7 +8,7 @@ import 'package:flutter/widgets.dart';
 
 void main() {
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-    systemNavigationBarColor: Colors.amber, // navigation bar color
+    systemNavigationBarColor: Colors.white, // navigation bar color
     statusBarColor: Colors.white, // status bar color
     statusBarIconBrightness: Brightness.dark, // status bar icon color
     systemNavigationBarIconBrightness: Brightness.dark, // color of navigation controls
@@ -48,7 +48,7 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Colors.white,
         title: Image.asset(
           "assets/Logo.png",
-          height: 150.0,
+          height: 100.0,
           width: 140.0,
         ),
           actions: <Widget>[
@@ -75,10 +75,10 @@ class _MyHomePageState extends State<MyHomePage> {
           Positioned(
             top: 0,
             right: 0,
-            left: 14,
+            left: 0,
             child: Container(
-              height: MediaQuery.of(context).size.height-750,
-              width: MediaQuery.of(context).size.width-350,
+              height: 120,
+              width: 700,
               decoration: BoxDecoration(
                 image: DecorationImage(
                   image: AssetImage("assets/img.png"),
@@ -87,7 +87,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ),),
 
           Positioned(
-            top: 80,
+            top: 87,
               child: Container(
                 height: 360,
                 width: MediaQuery.of(context).size.width-40,
@@ -124,6 +124,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             style: TextStyle(
                               color: Colors.black,
                               fontSize: 30,
+                              fontWeight: FontWeight.w600,
                               fontFamily: "Serif",
                               // fontStyle: ,
 
@@ -172,7 +173,7 @@ class _MyHomePageState extends State<MyHomePage> {
               )),
 
           Positioned(
-            top: MediaQuery.of(context).size.height-280,
+            top: MediaQuery.of(context).size.height-275,
             right: 0,
             left: 0,
             child: Column(
@@ -185,7 +186,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
               ),
 
-              SizedBox(height: 20),
+              SizedBox(height: 25),
 
               Text(
                   "Or sign-in with",
@@ -195,7 +196,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
               ),),
 
-              SizedBox(height: 20),
+              SizedBox(height: 25),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -203,7 +204,7 @@ class _MyHomePageState extends State<MyHomePage> {
                    _loginSocialMediaBtn(
                   'assets/google-icon 1.png'),
 
-                  SizedBox(width: 30),
+                  SizedBox(width: 20),
 
                   _loginSocialMediaBtn(
                       'assets/Vector.png'),
@@ -252,8 +253,8 @@ class _MyHomePageState extends State<MyHomePage> {
     return SizedBox.fromSize(
       size: Size(40, 40),
       child: Container(
-            decoration: new BoxDecoration(
-              border: Border.all(width: 1, color: Colors.blue[500]),
+       decoration: new BoxDecoration(
+              border: Border.all(width: 1, color: Colors.blue[400].withOpacity(0.2)),
               borderRadius: new BorderRadius.all(Radius.circular(5.0)),
               shape: BoxShape.rectangle,
             ), //button width and height
@@ -269,6 +270,7 @@ class _MyHomePageState extends State<MyHomePage> {
             child: Center(
               child: Image.asset(
                 img,
+                height: 20,
               ),
             ),
           ),
