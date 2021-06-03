@@ -47,26 +47,22 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         backgroundColor: Colors.white,
         title: Image.asset(
-          "assets/logo.png",
-          height: 100.0,
-          width: 100.0,
+          "assets/Logo.png",
+          height: 150.0,
+          width: 140.0,
         ),
           actions: <Widget>[
-            IconButton(
-              icon: Icon(Icons.folder_outlined, color: Colors.grey,),
-              onPressed: () => {
-                //TODO
-              },
-            ),
-            IconButton(
-                icon: Icon(Icons.line_weight_sharp , color: Colors.grey,),
-                onPressed: () => {
-                  //TODO
-              },
-
-            ),
-
-
+               Container(
+                 padding: EdgeInsets.only(right:8, top:15, bottom:15),
+                child:Image.asset("assets/mall-bag.png",
+           width: 60,
+        ),),
+         Container(
+                 padding: EdgeInsets.only(right:5, top:15, bottom:15),
+       child:  Image.asset(
+          "assets/line.png",
+          width: 30,
+        ),)
         ]
 
     ),
@@ -77,16 +73,16 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Stack(
         children: [
           Positioned(
-            top: -100,
+            top: 0,
             right: 0,
-            left: 0,
+            left: 50,
             child: Container(
-              height: 300,
+              height: 100,
+              width: 700,
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage("assets/icon.png"),
-                  fit: BoxFit.fill
-                )
+                  image: AssetImage("assets/img.png"),
+                  fit: BoxFit.fitWidth             )
               ),
           ),),
 
@@ -115,7 +111,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
 
-                      SizedBox(height: 10),
+                      SizedBox(height: 8),
 
                       Align(
                         alignment: Alignment(-0.93,0),
@@ -127,8 +123,8 @@ class _MyHomePageState extends State<MyHomePage> {
                             'Login',
                             style: TextStyle(
                               color: Colors.black,
+                              fontSize: 30,
                               fontFamily: "Serif",
-                              fontSize: 25,
                               // fontStyle: ,
 
                             ),
@@ -137,7 +133,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       ),
 
 
-                      SizedBox(height: 25),
+                      SizedBox(height: 15),
                       _labelText('Email Address / Phone Number '),
                       _inputTextField('example@example.com', false),
                       SizedBox(height: 15),
@@ -149,7 +145,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         alignment: Alignment.center,
                         child: Container(
                           height: 55,
-                          width: 325,
+                          width: 300,
                           child: new RaisedButton(
                             onPressed: () => {
                               //TODO
@@ -157,10 +153,10 @@ class _MyHomePageState extends State<MyHomePage> {
                             child: Text(
                               'Login',
                               style: TextStyle(
-                                fontSize: 18,
+                                fontSize: 16,
                               ),
                             ),
-                            color: Colors.blueAccent,
+                            color: Colors.blue[500],
                             textColor: Colors.white,
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10.0),
@@ -175,12 +171,12 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               )),
 
-
           Positioned(
-            top: MediaQuery.of(context).size.height-250,
+            top: MediaQuery.of(context).size.height-280,
             right: 0,
             left: 0,
-            child: Column(children: [
+            child: Column(
+              children: [
               Divider(
                 color: Colors.blue,
                 height: 5,
@@ -189,33 +185,44 @@ class _MyHomePageState extends State<MyHomePage> {
 
               ),
 
-              SizedBox(height: 10),
+              SizedBox(height: 20),
 
               Text(
                   "Or sign-in with",
               style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.w700,
-                color: Colors.black54,
+                fontSize: 15,
+                color: Colors.grey[500],
 
               ),),
 
-              SizedBox(height: 15),
+              SizedBox(height: 20),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                   _loginSocialMediaBtn(
+                  'assets/google-icon 1.png'),
 
+                  SizedBox(width: 30),
+
+                  _loginSocialMediaBtn(
+                      'assets/Vector.png'),
+                ],
+              ),
 
 
             ],),
           ),
 
           Positioned(
-            top: MediaQuery.of(context).size.height-140,
+            top: MediaQuery.of(context).size.height-130,
             right: 0,
             left: 0,
             child: Column(children: [
-              Text('Don\'t have account? Sign Up!',
+              Text('Don\'t have an account? Sign Up!',
                 style: TextStyle(
-                  fontWeight: FontWeight.w700,
-                  color: Colors.blueAccent,
+                  decoration: TextDecoration.underline,
+                  color: Colors.blue[500],
                   fontSize: 16,
                 ),
 
@@ -240,6 +247,29 @@ class _MyHomePageState extends State<MyHomePage> {
 
 
 
+  //button to login in using scial media,
+  _loginSocialMediaBtn(String img) {
+    return SizedBox.fromSize(
+      size: Size(30, 30), //button width and height
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(5),
+        child: Material(
+          elevation: 16,
+          shadowColor: Colors.white,
+          color: Colors.white70,
+          child: InkWell(
+            splashColor: Colors.white,
+            onTap: () {},
+            child: Center(
+              child: Image.asset(
+                img,
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
 
   _inputTextField(hintText, bool obscuretext) {
     return Container(
@@ -268,8 +298,8 @@ class _MyHomePageState extends State<MyHomePage> {
         title,
         style: TextStyle(
           fontWeight: FontWeight.w500,
-          color: Colors.black,
-          fontSize: 16,
+          color: Colors.grey[500],
+          fontSize: 12,
         ),
       ),
     );
